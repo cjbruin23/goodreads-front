@@ -12,6 +12,7 @@ export class LoginFormsComponent implements OnInit {
 
   username = '';
   password = '';
+  isLoggedIn = false;
 
   onSubmit() {
     let user = {
@@ -19,7 +20,10 @@ export class LoginFormsComponent implements OnInit {
       password: this.password
     }
     this.authService.authenticate(user).subscribe((data) => {
-      console.log(data);
+      if(data.isLoggedIn) {
+        localStorage.setItem("userIsLoggedIn", "true");
+        this.isLoggedIn = true;
+      }
     });
   }
 

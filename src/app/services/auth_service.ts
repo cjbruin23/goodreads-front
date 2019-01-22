@@ -18,7 +18,7 @@ export class AuthService {
   authPath = "http://localhost:3000/login";
 
   // Returns an observable
-  authenticate(user: User): Observable<{}> {
+  authenticate(user: User): Observable<User> {
     return this.http.post<User>(this.authPath, user, this.httpOptions);
   }
-}
+} 
