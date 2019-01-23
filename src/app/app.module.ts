@@ -9,12 +9,14 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginFormsComponent } from './components/header/login-forms/login-forms.component';
 
 import { CoreModule } from './services/core_module';
+import { SignupFormComponent } from './components/header/signup-form/signup-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     LoginFormsComponent,
+    SignupFormComponent,
   ],
   imports: [
     BrowserModule,
