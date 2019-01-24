@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../../services/data.service';
 
 
 @Component({
@@ -7,13 +8,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./all-books.component.css']
 })
 export class AllBooksComponent implements OnInit {
+    title: string;
+    books: any[];
 
-    constructor(
-
-    ) { }
+    constructor(private dataService: DataService) { }
 
     ngOnInit() {
+        this.title = 'Customers';
+        this.dataService.getBooks()
+            .subscribe((books: []) => this.books = books);
     }
-
 
 }
