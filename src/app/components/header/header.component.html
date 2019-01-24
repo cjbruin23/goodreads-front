@@ -1,2 +1,15 @@
-<app-login-forms class="login_form"></app-login-forms>
-<app-signup-form class='signup_form'></app-signup-form>
+<nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-between">
+  <div class="d-flex">
+    <div class="p-2">
+      <strong><a class="nav-link" href="/">Home</a></strong>
+    </div>
+    <div class="p-2">
+      <app-login-form class="login_form" *ngIf="isLoggedIn || wantsToSignIn"></app-login-form>
+      <app-signup-form class="signup_form" *ngIf="!isLoggedIn && !wantsToSignIn"></app-signup-form>
+    </div>
+  </div>
+  <label class="btn-primary" ngbButtonLabel *ngIf="!isLoggedIn" (click)="changeToSignIn()" id="swapButton">
+    <span *ngIf="wantsToSignIn">{{ signUp }} </span>
+    <span *ngIf="!wantsToSignIn">{{ signIn }}</span>
+  </label>
+</nav>

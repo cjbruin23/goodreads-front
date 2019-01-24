@@ -1,0 +1,29 @@
+<form *ngIf="!isLoggedIn" (ngSubmit)="signIn()">
+  <div class="form-row">
+    <div class="col">
+      <div class="input-group">
+        <input [(ngModel)]="username" name="username" type="text" class="form-control" id="inlineFormInputGroupUsernameLogin"
+          placeholder="Username">
+      </div>
+    </div>
+    <div class="col">
+      <input [(ngModel)]="password" name="password" type="password" class="form-control" id="inlineFormInputNameLogin"
+        placeholder="Password">
+    </div>
+    <div class="col">
+      <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
+    </div>
+  </div>
+</form>
+
+<div class="row" *ngIf="isLoggedIn">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Welcome, {{ username }}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="signOut()"class="dropdown-item">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+

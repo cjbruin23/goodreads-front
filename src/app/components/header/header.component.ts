@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn = false;
+  wantsToSignIn = false;
+  signUp = "Sign Up";
+  signIn = "Sign In";
+
+  constructor(private dataService: DataService) { 
+
+  }
 
   ngOnInit() {
+    this.dataService.loggedInStatus.subscribe(status => this.isLoggedIn = status);
+  }
+
+  changeToSignIn() {
+    this.wantsToSignIn = !this.wantsToSignIn;
   }
 
 }

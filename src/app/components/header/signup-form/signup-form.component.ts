@@ -29,7 +29,6 @@ export class SignupFormComponent implements OnInit {
     this.userService.create(user.username, user.password).subscribe((data) => {
       if (data === true) {
         this.authService.authenticate(user).subscribe((data) => {
-          console.log(data);
           this.dataService.setIsLoggedIn(true)
           this.dataService.setUsername(data['username'])
         });
