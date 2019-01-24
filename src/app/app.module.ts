@@ -16,7 +16,7 @@ import { BookCreateComponent } from 'app/components/book-create/book-create.comp
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
     BookCreateComponent,
   ],
   imports: [
