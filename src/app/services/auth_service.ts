@@ -21,4 +21,4 @@ export class AuthService {
   authenticate(user: User): Observable<{}> {
     return this.http.post<User>(this.authPath, user, this.httpOptions);
   }
-}
+} 
