@@ -20,7 +20,7 @@ export class UsersService {
       username,
       password
     }
-    const httpPath = 'http://localhost:3000/users/create';
+    const httpPath = 'http://localhost:3000/users/signup';
     return this.http.post(httpPath, user , this.httpOptions)
   }
 }
