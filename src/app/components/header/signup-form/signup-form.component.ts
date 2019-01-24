@@ -18,7 +18,7 @@ export class SignupFormComponent implements OnInit {
 
   username = '';
   password = '';
-  isLoggedIn = 'false'
+  isLoggedIn = false
   
   onSubmit() {
     let user = {
@@ -30,13 +30,15 @@ export class SignupFormComponent implements OnInit {
       if (data === true) {
         this.authService.authenticate(user).subscribe((data) => {
           console.log(data);
-          this.dataService.setIsLoggedIn('true')
+          this.dataService.setIsLoggedIn(true)
+          this.dataService.setUsername(data['username'])
         });
       }
     }); 
   }
   ngOnInit() {
     this.dataService.loggedInStatus.subscribe(status => this.isLoggedIn = status)
+    this.dataService.username.subscribe(username => this.username = username)
   }
 
 }

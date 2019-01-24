@@ -1,4 +1,4 @@
-<form *ngIf="isLoggedIn=='false'" (ngSubmit)="onSubmit()">
+<form *ngIf="!isLoggedIn" (ngSubmit)="signIn()">
   <div class="form-row align-items-center">
     <div class="col-sm-2 col-3 my-1">
       <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
@@ -18,4 +18,12 @@
   </div>
 </form>
 
-<h1 *ngIf="isLoggedIn=='true'">Welcome, {{ username }}</h1>
+<div class="dropdown" *ngIf="isLoggedIn">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Welcome, {{ username }}
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a (click)="signOut()">Sign Out</a></li>
+  </ul>
+</div>
