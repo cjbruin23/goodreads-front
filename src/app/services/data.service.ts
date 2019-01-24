@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import Book from 'interfaces/book';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class DataService {
   private usernameInit = new BehaviorSubject('');
   username = this.usernameInit.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setIsLoggedIn(status: boolean) {
     this.isLoggedIn.next(status)
@@ -20,5 +23,15 @@ export class DataService {
 
   setUsername(username: string) {
     this.usernameInit.next(username);
+  }
+
+  newBookSubmit(book: Book): Observable<{}> {
+    const url = 'http://localhost:3000/books/add_book';
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    }
+    return this.http.post<Book>(url, book, httpOptions)
   }
 }

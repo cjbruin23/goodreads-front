@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { LoginFormsComponent } from './components/header/login-forms/login-forms.component';
+import { AppRoutingModule } from 'app/app-routing.module';
+import { AppComponent } from 'app/app.component';
+import { HeaderComponent } from 'app/components/header/header.component';
+import { LoginFormsComponent } from 'app/components/header/login-forms/login-forms.component';
 
-import { CoreModule } from './services/core_module';
-import { SignupFormComponent } from './components/header/signup-form/signup-form.component';
+import { CoreModule } from 'app/services/core_module';
+import { SignupFormComponent } from 'app/components/header/signup-form/signup-form.component';
+import { BookCreateComponent } from 'app/components/book-create/book-create.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { SignupFormComponent } from './components/header/signup-form/signup-form
     HeaderComponent,
     LoginFormsComponent,
     SignupFormComponent,
+    BookCreateComponent,
   ],
   imports: [
     BrowserModule,
