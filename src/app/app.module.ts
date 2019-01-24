@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginFormsComponent } from './components/header/login-forms/login-forms.component';
+import { MainModule } from './components/main/main.module'
 
 import { CoreModule } from './services/core_module';
 import { SignupFormComponent } from './components/header/signup-form/signup-form.component';
@@ -23,7 +24,8 @@ import { SignupFormComponent } from './components/header/signup-form/signup-form
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CoreModule
+    CoreModule,
+    MainModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
