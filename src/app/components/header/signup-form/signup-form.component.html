@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit()">
+<form *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()">
   <div class="form-row align-items-center">
     <div class="col-sm-2 col-3 my-1">
       <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
