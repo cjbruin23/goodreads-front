@@ -20,7 +20,7 @@ export class LoginFormsComponent implements OnInit {
       password: this.password
     }
     this.authService.authenticate(user).subscribe((data) => {
-      if(data.isLoggedIn) {
+      if(data == "Success") {
         localStorage.setItem("userIsLoggedIn", "true");
         this.isLoggedIn = true;
       }
