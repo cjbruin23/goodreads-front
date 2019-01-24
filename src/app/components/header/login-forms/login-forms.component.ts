@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth_service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-login-forms',
@@ -8,11 +9,14 @@ import { AuthService } from '../../../services/auth_service';
 })
 export class LoginFormsComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService,
+    private dataService: DataService
+    ) { }
 
   username = '';
   password = '';
-  isLoggedIn = false;
+  isLoggedIn = 'false';
 
   onSubmit() {
     let user = {
@@ -20,14 +24,16 @@ export class LoginFormsComponent implements OnInit {
       password: this.password
     }
     this.authService.authenticate(user).subscribe((data) => {
-      if(data == "Success") {
+      if(data['isLoggedIn'] === true) {
         localStorage.setItem("userIsLoggedIn", "true");
-        this.isLoggedIn = true;
+        this.dataService.setIsLoggedIn('true')
+        this.isLoggedIn = 'true';
       }
     });
   }
 
   ngOnInit() {
+    this.dataService.loggedInStatus.subscribe(status => this.isLoggedIn = status)
   }
 
 }

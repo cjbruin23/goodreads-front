@@ -3,9 +3,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './auth_service';
 import { UsersService } from './users.service';
+import { DataService } from './data.service';
 
 @NgModule({
   imports: [ HttpClientModule ],
-  providers: [ AuthService, UsersService ]
+  providers: [ AuthService, UsersService, DataService ]
 })
 export class CoreModule {}

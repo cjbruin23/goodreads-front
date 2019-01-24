@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { AuthService } from 'src/app/services/auth_service';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-signup-form',
@@ -11,12 +12,14 @@ export class SignupFormComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private userService: UsersService
+    private userService: UsersService,
+    private dataService: DataService
     ) { }
 
   username = '';
   password = '';
-
+  isLoggedIn = 'false'
+  
   onSubmit() {
     let user = {
       username: this.username,
@@ -27,11 +30,13 @@ export class SignupFormComponent implements OnInit {
       if (data === true) {
         this.authService.authenticate(user).subscribe((data) => {
           console.log(data);
+          this.dataService.setIsLoggedIn('true')
         });
       }
     }); 
   }
   ngOnInit() {
+    this.dataService.loggedInStatus.subscribe(status => this.isLoggedIn = status)
   }
 
 }
