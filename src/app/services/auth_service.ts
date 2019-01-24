@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { User } from '../../interfaces/user';
+import User from '../../interfaces/user';
 import { Observable } from 'rxjs';
 
 @Injectable()
@@ -15,7 +15,7 @@ export class AuthService {
     })
   }
 
-  authPath = "http://localhost:3000/login";
+  authPath = "http://localhost:3000/users/login";
 
   // Returns an observable
   authenticate(user: User): Observable<{}> {
