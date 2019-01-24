@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  isSignedIn
+  constructor() { 
+
+  }
 
   ngOnInit() {
+    this.isSignedIn = localStorage.getItem('userIsLoggedIn');
+    console.log(this.isSignedIn);
   }
 
 }

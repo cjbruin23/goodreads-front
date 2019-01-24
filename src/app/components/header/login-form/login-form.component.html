@@ -18,12 +18,14 @@
   </div>
 </form>
 
-<div class="dropdown" *ngIf="isLoggedIn">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Welcome, {{ username }}
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a (click)="signOut()">Sign Out</a></li>
-  </ul>
-</div>
+<div class="row" *ngIf="isLoggedIn">
+  <div class="col">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Welcome, {{ username }}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button (click)="signOut()"class="dropdown-item">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
+
