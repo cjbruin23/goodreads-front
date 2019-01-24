@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from 'app/app-routing.module';
 import { AppComponent } from 'app/app.component';
-import { HeaderModule } from 'app/components/header/header.component';
+import { HeaderModule } from 'app/components/header/header.module';
 import { MainModule } from 'app/components/main/main.module'
 
 
