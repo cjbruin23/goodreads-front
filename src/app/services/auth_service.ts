@@ -15,10 +15,14 @@ export class AuthService {
     })
   }
 
-  authPath = "http://localhost:3000/login";
+  authPath = "http://localhost:3000/users/login";
 
   // Returns an observable
   authenticate(user: User): Observable<{}> {
     return this.http.post<User>(this.authPath, user, this.httpOptions);
+  }
+
+  signOut() {
+    localStorage.removeItem('userIsLoggedIn');
   }
 } 

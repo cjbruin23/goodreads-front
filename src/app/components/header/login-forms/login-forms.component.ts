@@ -14,17 +14,22 @@ export class LoginFormsComponent implements OnInit {
   password = '';
   isLoggedIn = false;
 
-  onSubmit() {
+  signIn() {
     let user = {
       username: this.username,
       password: this.password
     }
     this.authService.authenticate(user).subscribe((data) => {
-      if(data == "Success") {
+      if(data) {
         localStorage.setItem("userIsLoggedIn", "true");
         this.isLoggedIn = true;
       }
     });
+  }
+
+  signOut() {
+    this.authService.signOut();
+    this.isLoggedIn = false;
   }
 
   ngOnInit() {
