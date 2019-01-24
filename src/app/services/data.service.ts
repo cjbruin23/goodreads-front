@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import Book from 'interfaces/book';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,7 +16,13 @@ export class DataService {
   private usernameInit = new BehaviorSubject('');
   username = this.usernameInit.asObservable();
 
+  baseUrl: string = 'http://localhost:3000/';
+    
   constructor(private http: HttpClient) { }
+
+  getBooks() : Observable<{}> {
+      return this.http.get(this.baseUrl + 'books/all_books')
+  }
 
   setIsLoggedIn(status: boolean) {
     this.isLoggedIn.next(status)
