@@ -1,19 +1,17 @@
 <form *ngIf="!isLoggedIn" (ngSubmit)="signIn()">
-  <div class="form-row align-items-center">
-    <div class="col-sm-2 col-3 my-1">
-      <label class="sr-only" for="inlineFormInputGroupUsername">Username</label>
+  <div class="form-row">
+    <div class="col">
       <div class="input-group">
         <input [(ngModel)]="username" name="username" type="text" class="form-control" id="inlineFormInputGroupUsernameLogin"
           placeholder="Username">
       </div>
     </div>
-    <div class="col-sm-2 col-3 my-1">
-      <label class="sr-only" for="inlineFormInputName">Password</label>
+    <div class="col">
       <input [(ngModel)]="password" name="password" type="password" class="form-control" id="inlineFormInputNameLogin"
         placeholder="Password">
     </div>
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Login</button>
+    <div class="col">
+      <button type="submit" class="btn btn-primary" id="loginButton">Login</button>
     </div>
   </div>
 </form>
